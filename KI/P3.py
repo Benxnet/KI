@@ -23,7 +23,7 @@ class TicTacToe(object):
         self.win_A = 0
         self.win_B = 0
         self.draw = 0
-        self.schliesse = 0
+        self.aio = False
 
     def show_board(self):
         s = self.board
@@ -86,7 +86,7 @@ class TicTacToe(object):
         return True
 
     def is_ai_only(self):
-        return self.npc_A == "Y" and self.npc_B == "Y"
+        return self.npc_A == "Y" and self.npc_B == "Y" and self.aio
 
     def is_winner(self, player_symbol):
         liste = [["0", "1", "2"],
@@ -125,9 +125,9 @@ class TicTacToe(object):
                 z = input("Play again? Y/N ")
                 if z == "N":
                     exit()
-                if z == "Y":
+                elif z == "Y":
                     self.__init__("", "")
-            if z == "Y":
+            elif z == "Y":
                 self.__init__(self.npc_A, self.npc_B)
                 self.start()
             else:
@@ -222,6 +222,7 @@ class TicTacToe(object):
         self.schliessen()
 
     def ai_only(self, games):
+        self.aio = True
         l = []
         f = True
         for i in range(0, games):
@@ -251,8 +252,10 @@ class TicTacToe(object):
         return l
 
 if __name__ == '__main__':
+    #tick = TicTacToe("Y", "Y")
     tick = TicTacToe("", "")
     tick.start()
-    #l = tick.ai_only(10000)
+    #l = tick.ai_only(100000)
     #print("Win X: "+l[0].__str__() +" Win_O: "+ l[1].__str__() + " Draw: "+l[2].__str__())
+    #print("Win X: " + ((l[0]/(l[0]+l[1]+l[2]))*100).__round__(2).__str__() + "% Win_O: " + ((l[1]/(l[0]+l[1]+l[2]))*100).__round__(2).__str__() + "% Draw: " + ((l[2]/(l[0]+l[1]+l[2]))*100).__round__(2).__str__() + "%")
     #print(l[0]+l[1]+l[2])
