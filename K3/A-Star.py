@@ -40,16 +40,16 @@ class AStar:
         self.distance[start] = 0
         self.frontier.append(start)
 
-        while len(self.frontier) != 0:
-            v = self.getLowestCost()
-            if v == self.ziel:
-                return self.solution()
-            self.frontier.remove(v)
-            for knoten in self.adjazenzliste[v].keys():
+        while len(self.frontier) != 0:  #if EMPTY?( _frontier ) then
+            v = self.getLowestCost()    #_node ← POP ( _frontier ) /* chooses the lowest-cost node in frontier */
+            if v == self.ziel:          #if _problem.GOAL-TEST ( _node.STATE ) then
+                return self.solution()  #return SOLUTION ( _node )
+            self.frontier.remove(v)     #add _node.STATE to _explored
+            for knoten in self.adjazenzliste[v].keys(): #for each _action in _problem.ACTIONS ( _node.STATE ) do
                 if self.distance[knoten] == math.inf or self.distance[knoten] > self.distance[v] + \
-                        self.adjazenzliste[v][knoten]:
-                    self.distance[knoten] = self.distance[v] + self.adjazenzliste[v][knoten]
-                    self.frontier.append(knoten)
+                        self.adjazenzliste[v][knoten]:  #if _child.STATE is not in _explored or _frontier then bzw günstigsten
+                    self.distance[knoten] = self.distance[v] + self.adjazenzliste[v][knoten]    #kosten
+                    self.frontier.append(knoten)    #_frontier ← INSERT ( _child, _frontier )
 
     def getLowestCost(self):
         cheap = self.frontier[0]
