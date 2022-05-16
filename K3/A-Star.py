@@ -76,10 +76,10 @@ class AStar:
         return solution
 
     def heuristic(self, knoten):
-        delta_x = self.koordinaten[self.start]["x"] - self.koordinaten[self.ziel]["x"]  # abstand x
-        delta_y = self.koordinaten[self.start]["y"] - self.koordinaten[self.ziel]["y"]  # abstand y
+        delta_x = self.koordinaten[knoten]["x"] - self.koordinaten[self.ziel]["x"]  # abstand x
+        delta_y = self.koordinaten[knoten]["y"] - self.koordinaten[self.ziel]["y"]  # abstand y
         return math.sqrt(math.pow(delta_x, 2) + math.pow(delta_y, 2)) * 100  # Hypotenuse oder luftlinie
-        # return 0
+        #return 0
 
 
 if __name__ == "__main__":
