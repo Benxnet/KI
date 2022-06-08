@@ -19,6 +19,10 @@ def fig(n):
 
 print(fig(13))
 
+print(3/3+3)
+print(3+3/3)
+print(3+3*3+3)
+
 def nfak(n):
     if n <= 0:
         return 1
@@ -27,7 +31,7 @@ def nfak(n):
 print(nfak(9))
 
 class Rechteck:
-    def __init__(self,a,b):
+    def __init__(self, a, b):
         self.a = a
         self.b = b
 
@@ -40,7 +44,8 @@ eck = Rechteck(3 ,5)
 print(eck.flaeche())
 
 class Quadrat (Rechteck):
-    def __init__(self,a):
+    def __init__(self, a):
+        super().__init__(a, a)
         self.a = a
         self.b = a
 

@@ -20,6 +20,6 @@ def pl_true(expression: Expression, model):
     if isinstance(expression, IffExpression):
         return first == second
 
-sentence = "(A | B | C) & (A | B | -C) & (-A | B | C) & (-A | -B | C)"
-model = {"A": True, "B": False, "C": True}
+sentence = "(A->C)<=>-(B->D)"
+model = {"A": False, "B": False, "C": True, "D": False}
 print(pl_true(LogicParser().parse(sentence), model))

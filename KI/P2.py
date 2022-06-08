@@ -9,6 +9,7 @@ with open(json_file) as json_file:
     pairs = json_data.items()
     for key, value in pairs:
         print(key + " " + value)
+    json_data = json.load(json_file)
 
 print("2..................................................................................")
 
@@ -20,8 +21,7 @@ def nfak(n):
 
 
 def create_fak_generator(zahl):
-    liste = range(zahl)
-    for zahl in liste:
+    for zahl in range(zahl):
         yield nfak(zahl)
 
 

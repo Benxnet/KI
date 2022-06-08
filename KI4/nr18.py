@@ -46,7 +46,7 @@ def tt_check_all(knowledge_base, alpha, symbols, model):
         return result_one and result_two
 
 
-parse_string = "((A -> B) & D)"
+parse_string = "(A ->B) & D"
 calculator = Logic_calculator.LogicCalculator()
 KB = calculator.init(parse_string)
 print(tt_entails(KB, "A -> D"))

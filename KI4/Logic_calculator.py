@@ -12,15 +12,23 @@ class LogicCalculator:
         return self.parser.parse(string)
 
     def expression_to_tree(self, expression: Expression):
-        if not isinstance(expression, BinaryExpression):
+        if isinstance(expression, AbstractVariableExpression):
             return Tree("%s" % expression, ())
-        knoten = expression.getOp()
 
-        kind_knoten = [
-            self.expression_to_tree(expression.first),
-            self.expression_to_tree(expression.second)
-        ]
-        return Tree(knoten, kind_knoten)
+        if isinstance(expression,NegatedExpression):
+            print(expression.term)
+            knoten ="-"
+            kind_knoten = [
+                self.expression_to_tree(expression.term)
+            ]
+            return Tree(knoten, kind_knoten)
+        elif isinstance(expression, BinaryExpression):
+            knoten = expression.getOp()
+            kind_knoten = [
+                self.expression_to_tree(expression.first),
+                self.expression_to_tree(expression.second)
+            ]
+            return Tree(knoten, kind_knoten)
 
     def tell(self, KB, expression):
         return AndExpression(KB, self.parser.parse(expression))
