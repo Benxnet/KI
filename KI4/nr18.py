@@ -46,7 +46,15 @@ def tt_check_all(knowledge_base, alpha, symbols, model):
         return result_one and result_two
 
 
-parse_string = "(A ->B) & D"
+#parse_string = "(A ->B) & D"
 calculator = Logic_calculator.LogicCalculator()
-KB = calculator.init(parse_string)
-print(tt_entails(KB, "A -> D"))
+#KB = calculator.init(parse_string)
+KB = calculator.init("(A | B | C) & (A | B | -C) & ( -A | B | C) & (-A | -B | -( -C ))")
+KB = calculator.tell(KB,"(A | B | C) & ( ( A | B | -C ) & ( -A | B | C ) ) & (-A | -B | C)")
+KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & (-A | B | C | D) & (-A | -B | C)")
+KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & ( -A | B & C | D ) & ( -A | -B | C)")
+KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & ((-A | B) & (C | D)) | (-A | -B | C)")
+KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & ( ( (-A | B) & C) | D) & (-A | -B | C)")
+alpha = "A->(B->(C->D))"
+#print(tt_entails(KB, "A -> D"))
+print(tt_entails(KB,alpha))
