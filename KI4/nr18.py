@@ -26,11 +26,14 @@ def tt_entails(knowledge_base, alpha):  # Starte den rekursiven Algorithmus tt_c
 
 
 def tt_check_all(knowledge_base, alpha, symbols, model):
-    print(model)
     if not symbols:
         if pl_true(knowledge_base, model):
-            return pl_true(alpha, model)
+            alphaboolean = pl_true(alpha, model)
+            print(str(model) + ", KB == True,"+" Alpha == " + str(alphaboolean))
+            return alphaboolean
         else:
+            alphaboolean = pl_true(alpha, model)
+            print(str(model) + ", KB == False,"+" Alpha == " + str(alphaboolean))
             return True
     else:
         symbols_copy = symbols.copy()
@@ -49,12 +52,19 @@ def tt_check_all(knowledge_base, alpha, symbols, model):
 #parse_string = "(A ->B) & D"
 calculator = Logic_calculator.LogicCalculator()
 #KB = calculator.init(parse_string)
-KB = calculator.init("(A | B | C) & (A | B | -C) & ( -A | B | C) & (-A | -B | -( -C ))")
-KB = calculator.tell(KB,"(A | B | C) & ( ( A | B | -C ) & ( -A | B | C ) ) & (-A | -B | C)")
-KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & (-A | B | C | D) & (-A | -B | C)")
-KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & ( -A | B & C | D ) & ( -A | -B | C)")
-KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & ((-A | B) & (C | D)) | (-A | -B | C)")
-KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & ( ( (-A | B) & C) | D) & (-A | -B | C)")
+#KB = calculator.init("(A | B | C) & (A | B | -C) & ( -A | B | C) & (-A | -B | -( -C ))")
+#KB = calculator.tell(KB,"(A | B | C) & ( ( A | B | -C ) & ( -A | B | C ) ) & (-A | -B | C)")
+#KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & (-A | B | C | D) & (-A | -B | C)")
+#KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & ( -A | B & C | D ) & ( -A | -B | C)")
+#KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & ((-A | B) & (C | D)) | (-A | -B | C)")
+#KB = calculator.tell(KB,"(A | B | C) & ( A | -C ) & ( ( (-A | B) & C) | D) & (-A | -B | C)")
+
+KB = calculator.init("(A | B | C) & (A | B | -C) & (-A | B | C) & (-A | -B | -(-C))")
+KB = calculator.tell(KB,"(A | B | C) & (A | B | -C) & (-A | B | C) & (-A | -B | C)")
+KB= calculator.tell(KB,"(A | B | C) & (A | -C) & (-A | B | C | D) & (-A | -B | C)")
+KB= calculator.tell(KB,"(A | B | C) & (A | -C) & (-A | B & C | D) & (-A | -B | C)")
+KB= calculator.tell(KB,"(A | B | C) & (A | -C) & ((-A | B) & (C | D)) | (-A | -B | C)")
+KB= calculator.tell(KB,"(A | B | C) & (A | -C) & (((-A | B) & C) | D) & (-A | -B | C)")
 alpha = "A->(B->(C->D))"
 #print(tt_entails(KB, "A -> D"))
 print(tt_entails(KB,alpha))
