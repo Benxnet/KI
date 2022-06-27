@@ -65,6 +65,6 @@ KB= calculator.tell(KB,"(A | B | C) & (A | -C) & (-A | B | C | D) & (-A | -B | C
 KB= calculator.tell(KB,"(A | B | C) & (A | -C) & (-A | B & C | D) & (-A | -B | C)")
 KB= calculator.tell(KB,"(A | B | C) & (A | -C) & ((-A | B) & (C | D)) | (-A | -B | C)")
 KB= calculator.tell(KB,"(A | B | C) & (A | -C) & (((-A | B) & C) | D) & (-A | -B | C)")
-alpha = "A->(B->(C->D))"
+alpha = "A->B->C->D"
 #print(tt_entails(KB, "A -> D"))
 print(tt_entails(KB,alpha))

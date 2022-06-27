@@ -10,8 +10,8 @@ durchgeführt?
 Die bilder wurden alle auf die gleiche pixel größe gebracht und zwar 28x28 ohne das ratio zu verändern.
 Die bilder haben nur Graustufen und keine Farben jeder Pixel 0-255. Sie sind auch schon aufgeteilt.
 
-3. Welches Format hat der Input-Layer des Datensatzes?
-Das Format ist 28,28
+3 Welches Format hat der Input-Layer des Datensatzes?.
+Das Format ist 28,28 ,zwei dimensionen
 
 
 #Nr22
@@ -39,10 +39,10 @@ Die Genauigkeit wird ungefähr ein prozent schlechter aber sonst ich nichts auff
 
 Welches Ergebnis schlagen die verschiedenen trainierten Modelle als Ergebnis vor?
 
-NN1 = 7
-NN2 = 7
-NN2A = 7
-NN3 = 7
+NN1 = 9
+NN2 = 9
+NN2A = 9
+NN3 = 9
 
 Wie verändert sich das Ergebnis bei Veränderung der Dropout Rate im Training?
 

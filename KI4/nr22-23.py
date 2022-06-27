@@ -63,7 +63,7 @@ def main():
     y = np.concatenate((y_train, y_test))
 
     train_size = 3 / 4
-    x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=train_size)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=train_size, random_state=None, shuffle=False)
 
     print(len(x_train))
     print(len(x_test))
@@ -71,7 +71,7 @@ def main():
     x_train, x_test = x_train / 255.0, x_test / 255.0
 
     # Erstellung des Sequential model
-    model = NN1()
+    model = NN3()
 
     # Für jedes Beispiel gibt das model ein vektor von logits oder log-odds zurück
     predictions = model(x_train[:1]).numpy()
@@ -103,8 +103,9 @@ def main():
     # Gibt das erste element von y_test aus
     print(y_test[:1])
     # Setzt Ausgangsdaten als wahrscheinlichkeit
-    probability_model(x_test[:1])
-
+    r = probability_model(x_test[:1]).numpy()[0]
+    for i,n in enumerate(r):
+        print("{}: {:>8.4%}".format(i,n))
 
 if __name__ == "__main__":
     main()

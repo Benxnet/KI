@@ -1,0 +1,87 @@
+{
+  "city_list": [
+    {
+      "city_char": "a",
+      "city_name": "London",
+      "latitude": "51.509865",
+      "longtitude": "-0.118092"
+    },
+    {
+      "city_char": "b",
+      "city_name": "Berlin",
+      "latitude": "52.520008",
+      "longtitude": "13.404954"
+    },
+    {
+      "city_char": "c",
+      "city_name": "Madrid",
+      "latitude": "40.416775",
+      "longtitude": "-3.703790"
+    },
+    {
+      "city_char": "d",
+      "city_name": "Kiew",
+      "latitude": "50.450001",
+      "longtitude": "30.523333"
+    },
+    {
+      "city_char": "e",
+      "city_name": "Rom",
+      "latitude": "41.902782",
+      "longtitude": "12.496366"
+    },
+    {
+      "city_char": "f",
+      "city_name": "Paris",
+      "latitude": "48.864716",
+      "longtitude": "2.349014"
+    },
+    {
+      "city_char": "g",
+      "city_name": "Moskau",
+      "latitude": "55.751244",
+      "longtitude": "37.618423"
+    },
+    {
+      "city_char": "h",
+      "city_name": "Stockholm",
+      "latitude": "59.334591",
+      "longtitude": "18.063240"
+    },
+    {
+      "city_char": "i",
+      "city_name": "Dublin",
+      "latitude": "53.350140",
+      "longtitude": "-6.266155"
+    },
+    {
+      "city_char": "j",
+      "city_name": "Bukarest",
+      "latitude": "44.439663",
+      "longtitude": "26.096306"
+    }
+  ],
+  "edge_list":
+  [
+    {"a":  "a", "b":  "i", "distance":  "138"},
+    {"a":  "a", "b":  "h", "distance":  "333"},
+    {"a":  "a", "b":  "f", "distance":  "193"},
+
+    {"a":  "b", "b":  "f", "distance":  "245"},
+    {"a":  "b", "b":  "g", "distance":  "434"},
+    {"a":  "b", "b":  "h", "distance":  "159"},
+    {"a":  "b", "b":  "j", "distance":  "354"},
+
+    {"a":  "c", "b":  "f", "distance":  "301"},
+    {"a":  "c", "b":  "e", "distance":  "1364"},
+
+    {"a":  "d", "b":  "j", "distance":  "164"},
+    {"a":  "d", "b":  "g", "distance":  "209"},
+
+    {"a":  "e", "b":  "j", "distance":  "311"},
+    {"a":  "e", "b":  "f", "distance":  "264"},
+
+    {"a":  "g", "b":  "h", "distance":  "273"}
+
+  ]
+}
